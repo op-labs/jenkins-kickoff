@@ -40,7 +40,7 @@ def executeScript():
 		for audit in auditData:
 			# Runs the audit if it isn't currently running
 			print('Audit ' + str(audit['id']) + ' (' + audit['name'] + '):')
-			if (audit['webAuditRunning'] == False):
+			if (audit['webAuditRunning'] == None):
 				httpReq('post',baseURL + '/web-audits/' + str(audit['id']) + '/runs', authHeader,True)
 			else:
 				print('\tItem Already Running')
